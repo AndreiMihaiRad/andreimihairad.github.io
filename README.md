@@ -15,3 +15,9 @@ Then run `bundle exec jekyll serve` and open your browser at `http://localhost:4
 ## License
 
 The theme is available as open source under the terms of the [Microsoft Public License](https://github.com/MvvmCross/MvvmCross/blob/master/LICENSE).
+
+### Extra notes
+Pay attention if you choose Fedora distribution. Issues with ruby gem json dependencies which don't come with ruby default. Also some extra dependencies should be installed before executing bundle install
+`sudo yum install zlib-devel`
+`sudo dnf install rubygem-json`
+`sudo dnf install nodejs`
