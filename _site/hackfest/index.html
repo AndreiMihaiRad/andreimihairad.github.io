@@ -1,0 +1,733 @@
+<!--
+ __  __                         _____                   
+|  \/  |                       / ____|                  
+| \  / |_   ____   ___ __ ___ | |     _ __ ___  ___ ___ 
+| |\/| \ \ / /\ \ / / '_ ` _ \| |    | '__/ _ \/ __/ __|
+| |  | |\ V /  \ V /| | | | | | |____| | | (_) \__ \__ \
+|_|  |_| \_/    \_/ |_| |_| |_|\_____|_|  \___/|___/___/
+========================================================
+                                    © 2017 MvvmCross.com
+-->
+
+<!DOCTYPE html>
+<html lang="">
+<!-- head -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/assets/richleland-pygments-css/vs.css">
+    <!-- jekyll-seo-tag -->
+    <!-- Begin Jekyll SEO tag v2.2.3 -->
+<title>MvvmCross .NET Summer Hackfest | MvvmCross</title>
+<meta property="og:title" content="MvvmCross .NET Summer Hackfest" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="MvvmCross is a convention based MVVM framework for Xamarin and Windows, with strong community support, filled to the brim with useful features." />
+<meta property="og:description" content="MvvmCross is a convention based MVVM framework for Xamarin and Windows, with strong community support, filled to the brim with useful features." />
+<link rel="canonical" href="http://localhost:4000/hackfest/" />
+<meta property="og:url" content="http://localhost:4000/hackfest/" />
+<meta property="og:site_name" content="MvvmCross" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@MvvmCross" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"WebPage","headline":"MvvmCross .NET Summer Hackfest","description":"MvvmCross is a convention based MVVM framework for Xamarin and Windows, with strong community support, filled to the brim with useful features.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/logo/MvvmCross-avatar.png"}},"url":"http://localhost:4000/hackfest/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- favicons and rss -->
+    <link rel="alternate" type="application/rss+xml" title="MvvmCross" href="/feed.xml">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/img/favicon/manifest.json">
+</head>
+<body>
+    <!-- header -->
+    <header class="header" role="banner" aria-label="Header">
+    <button class="hamburger-button" onclick="hamburgerMenu();" role="button" aria-label="Hamburger menu button">
+        <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+    </button>
+    <a href="/" class="logo" role="link" aria-label="Home">
+        <img alt="MvvmCross" src="/assets/img/logo/MvvmCross-logo.png" role="img" aria-label="Logo"/>
+    </a>
+    <nav class="navigation" role="navigation" aria-label="Navigation">
+        <ul role="menu" aria-hidden="true" aria-label="Navigation menu">
+            <li role="menuitem" aria-label="Navigation menu item">
+                <a href="/" class="logo" role="menuitem" aria-label="Home">
+                    <img alt="MvvmCross" src="/assets/img/logo/MvvmCross-logo.png" role="img" aria-label="Logo"/>
+                </a>
+            </li>
+            
+            <li role="menuitem"><a href="/blog" role="menuitem" aria-label="Blog">Blog</a></li>
+            
+        </ul>
+    </nav>
+    <div class="searchbox" role="search" aria-label="Search">
+        <form action="/search" id="searchthis" method="get" role="form" aria-label="Search form">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="search" id="search" name="query" placeholder="Search..." role="textbox" aria-label="Search textbox"/>
+        </form>
+    </div>
+</header>
+<nav id="hamburger-menu" role="navigation" aria-label="Hamburger menu">
+    <div class="searchbox" role="search" aria-label="Search">
+        <form action="/search" id="searchthis" method="get" role="form" aria-label="Search form">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="search" id="search" name="query" placeholder="Search..." role="textbox" aria-label="Search textbox"/>
+        </form>
+    </div>
+    <div class="home-nav" role="navigation" aria-label="Site navigation">
+        <a href="/" role="menuitem" aria-label="Home">Home</a>
+        
+        <a href="/blog" role="menuitem" aria-label="Blog">Blog</a>
+        
+    </div>
+    <div class="doc-nav" role="navigation" aria-label="Documentation navigation">
+        
+        
+        
+        <p role="presentation" aria-label="Category name">Getting-started</p>
+        <ul role="menu" aria-hidden="true" aria-label="Navigation menu">
+        
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/getting-started/getting-started" class="doc-link" role="link" aria-label="Getting Started with MvvmCross">Getting Started with MvvmCross</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/getting-started/debugging-with-symbols" class="doc-link" role="link" aria-label="Debugging with Symbols">Debugging with Symbols</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/getting-started/mvvmcross-packages" class="doc-link" role="link" aria-label="MvvmCross Packages">MvvmCross Packages</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/getting-started/netstandard" class="doc-link" role="link" aria-label=".NET Standard & MvvmCross">.NET Standard & MvvmCross</a></li>
+        
+        </ul>
+        
+        
+        <p role="presentation" aria-label="Category name">Fundamentals</p>
+        <ul role="menu" aria-hidden="true" aria-label="Navigation menu">
+        
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/fundamentals/app-lifecycle" class="doc-link" role="link" aria-label="App lifecycle">App lifecycle</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/fundamentals/custom-data-binding" class="doc-link" role="link" aria-label="Custom Data Binding">Custom Data Binding</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/fundamentals/customize-app" class="doc-link" role="link" aria-label="Customize app">Customize app</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/fundamentals/mvvmcross-overview" class="doc-link" role="link" aria-label="MvvmCross Overview">MvvmCross Overview</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/fundamentals/data-binding" class="doc-link" role="link" aria-label="Data binding">Data binding</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/fundamentals/navigation" class="doc-link" role="link" aria-label="Navigation">Navigation</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/fundamentals/value-converters" class="doc-link" role="link" aria-label="Value converters">Value converters</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/fundamentals/value-combiners" class="doc-link" role="link" aria-label="Value combiners">Value combiners</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/fundamentals/viewmodel-lifecycle" class="doc-link" role="link" aria-label="ViewModel Lifecycle">ViewModel Lifecycle</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/fundamentals/dependency-injection" class="doc-link" role="link" aria-label="Dependency injection">Dependency injection</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/fundamentals/inversion-of-control-ioc" class="doc-link" role="link" aria-label="Inversion of Control">Inversion of Control</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/fundamentals/portable-class-library-pcl" class="doc-link" role="link" aria-label="Portable Class Library (PCL)">Portable Class Library (PCL)</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/fundamentals/Customizing-using-App-and-Setup" class="doc-link" role="link" aria-label="Customizing using App and Setup">Customizing using App and Setup</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/fundamentals/analysis" class="doc-link" role="link" aria-label="Code Analysis">Code Analysis</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/fundamentals/mvxinteraction" class="doc-link" role="link" aria-label="ViewModel to View Interaction">ViewModel to View Interaction</a></li>
+        
+        </ul>
+        
+        
+        <p role="presentation" aria-label="Category name">Platform specifics</p>
+        <ul role="menu" aria-hidden="true" aria-label="Navigation menu">
+        
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/platform/android-support-library" class="doc-link" role="link" aria-label="Android support library">Android support library</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/platform/ios-support-library" class="doc-link" role="link" aria-label="iOS Support Library">iOS Support Library</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/platform/ios-tables-and-cells" class="doc-link" role="link" aria-label="iOS Tables and Cells">iOS Tables and Cells</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/platform/universal-windows-platform-uwp/universal-windows-platform-uwp" class="doc-link" role="link" aria-label="Universal Windows platform (UWP)">Universal Windows platform (UWP)</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/platform/xamarin-forms" class="doc-link" role="link" aria-label="Xamarin.Forms with MvvmCross">Xamarin.Forms with MvvmCross</a></li>
+        
+        </ul>
+        
+        
+        <p role="presentation" aria-label="Category name">Presenters</p>
+        <ul role="menu" aria-hidden="true" aria-label="Navigation menu">
+        
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/presenters/android-view-presenter" class="doc-link" role="link" aria-label="Android View Presenter">Android View Presenter</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/presenters/ios-view-presenter" class="doc-link" role="link" aria-label="iOS View Presenter">iOS View Presenter</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/presenters/mac-view-presenter" class="doc-link" role="link" aria-label="Mac View Presenter">Mac View Presenter</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/presenters/view-presenters" class="doc-link" role="link" aria-label="View Presenters">View Presenters</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/presenters/wpf-view-presenter" class="doc-link" role="link" aria-label="WPF View Presenter">WPF View Presenter</a></li>
+        
+        </ul>
+        
+        
+        <p role="presentation" aria-label="Category name">Plugins</p>
+        <ul role="menu" aria-hidden="true" aria-label="Navigation menu">
+        
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/3rd-party-plugins" class="doc-link" role="link" aria-label="3rd party plugins">3rd party plugins</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/accelerometer" class="doc-link" role="link" aria-label="Accelerometer">Accelerometer</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/color" class="doc-link" role="link" aria-label="Color">Color</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/downloadcache" class="doc-link" role="link" aria-label="DownloadCache">DownloadCache</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/email" class="doc-link" role="link" aria-label="Email">Email</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/fieldbinding" class="doc-link" role="link" aria-label="FieldBinding">FieldBinding</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/file" class="doc-link" role="link" aria-label="File">File</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/json" class="doc-link" role="link" aria-label="Json">Json</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/jsonlocalisation" class="doc-link" role="link" aria-label="JsonLocalization">JsonLocalization</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/location" class="doc-link" role="link" aria-label="Location">Location</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/messenger" class="doc-link" role="link" aria-label="Messenger">Messenger</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/methodbinding" class="doc-link" role="link" aria-label="MethodBinding">MethodBinding</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/network" class="doc-link" role="link" aria-label="Network">Network</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/phonecall" class="doc-link" role="link" aria-label="PhoneCall">PhoneCall</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/picturechooser" class="doc-link" role="link" aria-label="PictureChooser">PictureChooser</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/resourceloader" class="doc-link" role="link" aria-label="ResourceLoader">ResourceLoader</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/resxlocalization" class="doc-link" role="link" aria-label="ResxLocalization">ResxLocalization</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/share" class="doc-link" role="link" aria-label="Share">Share</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/visibility" class="doc-link" role="link" aria-label="Visibility">Visibility</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/plugins/webbrowser" class="doc-link" role="link" aria-label="WebBrowser">WebBrowser</a></li>
+        
+        </ul>
+        
+        
+        <p role="presentation" aria-label="Category name">Testing</p>
+        <ul role="menu" aria-hidden="true" aria-label="Navigation menu">
+        
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/testing/testing" class="doc-link" role="link" aria-label="Testing">Testing</a></li>
+        
+        </ul>
+        
+        
+        <p role="presentation" aria-label="Category name">Samples</p>
+        <ul role="menu" aria-hidden="true" aria-label="Navigation menu">
+        
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/samples/samples" class="doc-link" role="link" aria-label="Samples">Samples</a></li>
+        
+        </ul>
+        
+        
+        <p role="presentation" aria-label="Category name">Upgrading</p>
+        <ul role="menu" aria-hidden="true" aria-label="Navigation menu">
+        
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/upgrading/upgrade-to-mvvmcross-40" class="doc-link" role="link" aria-label="Upgrade from 3 to MvvmCross 4">Upgrade from 3 to MvvmCross 4</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/upgrading/upgrade-to-mvvmcross-50" class="doc-link" role="link" aria-label="Upgrade from 4 to MvvmCross 5">Upgrade from 4 to MvvmCross 5</a></li>
+        
+        </ul>
+        
+        
+        <p role="presentation" aria-label="Category name">TipCalc Tutorial</p>
+        <ul role="menu" aria-hidden="true" aria-label="Navigation menu">
+        
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/tipcalc-tutorial/the-tip-calc-tutorial" class="doc-link" role="link" aria-label="The Tip Calc tutorial">The Tip Calc tutorial</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/tipcalc-tutorial/the-core-project" class="doc-link" role="link" aria-label="The Core Project">The Core Project</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/tipcalc-tutorial/the-tip-calc-navigation" class="doc-link" role="link" aria-label="The TipCalc navigation">The TipCalc navigation</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/tipcalc-tutorial/a-xamarinandroid-ui-project" class="doc-link" role="link" aria-label="A Xamarin.Android UI Project">A Xamarin.Android UI Project</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/tipcalc-tutorial/a-xamarinios-ui-project" class="doc-link" role="link" aria-label="A Xamarin.iOS UI Project">A Xamarin.iOS UI Project</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/tipcalc-tutorial/a-windows-universal-app-platform-project" class="doc-link" role="link" aria-label="A Windows Universal App Platform Project">A Windows Universal App Platform Project</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/tipcalc-tutorial/a-universal-windows-app-ui-project" class="doc-link" role="link" aria-label="A Universal Windows App UI Project">A Universal Windows App UI Project</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/tipcalc-tutorial/a-wpf-ui-project" class="doc-link" role="link" aria-label="A Wpf UI Project">A Wpf UI Project</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/tipcalc-tutorial/tip-calculator-a-recap" class="doc-link" role="link" aria-label="Tip Calculator - A recap">Tip Calculator - A recap</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/tipcalc-tutorial/a-note-about-views-and-viewmodels" class="doc-link" role="link" aria-label="A note about Views and ViewModels">A note about Views and ViewModels</a></li>
+        
+        </ul>
+        
+        
+        <p role="presentation" aria-label="Category name">Contributing</p>
+        <ul role="menu" aria-hidden="true" aria-label="Navigation menu">
+        
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/contribute/acknowledgements" class="doc-link" role="link" aria-label="Acknowledgements">Acknowledgements</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/contribute/contribute" class="doc-link" role="link" aria-label="New contributions">New contributions</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/contribute/mvvmcross-docs-style-guide" class="doc-link" role="link" aria-label="Style Guide">Style Guide</a></li>
+        
+        </ul>
+        
+        
+        <p role="presentation" aria-label="Category name">Licensing</p>
+        <ul role="menu" aria-hidden="true" aria-label="Navigation menu">
+        
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/licensing/licensing" class="doc-link" role="link" aria-label="Licensing">Licensing</a></li>
+        
+        <li role="menuitem" aria-label="Navigation menu item"><a href="/documentation/licensing/references" class="doc-link" role="link" aria-label="References">References</a></li>
+        
+        </ul>
+        
+    </div>
+</nav>
+    <!-- main content -->
+    <main class="container" role="main">
+        <article class="hackfest">
+  <section class="banner">
+    <div class="background">
+      <div class="img"></div>
+      <div class="shadow"></div>
+      <div class="text">
+        <p class="time">August 21st to September 2nd, 2017</p>
+        <h1 class="title">MvvmCross <br> .NET Summer Hackfest</h1>
+      </div>
+    </div>
+  </section>
+  <section class="info hackfest-padding">
+    <div class="companie-logos">
+      <img src="/assets/img/logo/MvvmCross-logo.png" alt="Logo">
+      <img src="/assets/img/logo/dotnet-foundation-logo.png" alt="Logo">
+      <img src="/assets/img/logo/logo-xablu-blue.png" alt="Logo">
+      <img src="/assets/img/logo/Microsoft_logo.png" alt="Logo">
+    </div>
+    <div class="info-content">
+      <div class="main-content">
+        <h2 class="title">The .NET Summer Hackfest</h2>
+        <p class="content">MvvmCross is one of the projects taking part in the inaugural <a href="https://dotnetfoundation.org/blog/announcing-net-summer-hackfest-2017">.NET Summer Hackfest</a>, organized by the .NET Foundation! Running for two weeks from August 21st to September 2nd, 2017, the MvvmCross session will see contributors from around the world work together virtually to build and improve the framework, with two exciting in-person events also planned! Participation is open to all, whether you’re a first-time or long-time contributor.</p>
+      </div>
+      <div class="line"></div>
+      <div class="goals">
+        <h2 class="title">The main goals are to:</h2>
+        <ul class="golas-list">
+          <li>Convert MvvmCross to the .NET Standard</li>
+          <li>Update samples to latest version</li>
+          <li>Add more async Task based code</li>
+          <li>Update and create more website content</li>
+          <li>Improve the documentation</li>
+          <li>Work on up-for-grabs issues</li>
+          <li>Join the .NET Foundation</li>
+        </ul>
+      </div>
+    </div>
+    <a class="sign-up" href="https://www.eventbrite.com/e/mvvmcross-net-summer-hackfest-registration-36537277982">Register now to join the Hackfest!</a>    
+  </section>
+  <section class="take-part-in hackfest-padding">
+    <h1 class="text-center">Take part in the MvvmCross .NET Summer Hackfest!</h1>
+    <div class="take-part-in-content">
+      <div class="why">
+        <h2>Why should I join?</h2>
+        <p>Taking part in the MvvmCross .NET Summer Hackfest is a great chance to get started as a contributor to Open Source projects, to learn Xamarin and MvvmCross more in-depth and to get in touch with world-class mobile developers while giving back to the community. And every participant will also receive a set of MvvmCross goodies in the mail!</p>
+      </div>
+      <div class="how">
+        <h2>How does it work?</h2>
+        <p>We've created a new <a href="https://github.com/orgs/MvvmCross/projects/1">GitHub project</a> which lists all of the tasks planned during the two week period. Once you register, you can ask to get assigned to an issue and make a pull request! The MvvmCross Core team will review any new issue and pull request as soon as possible in the two week hackfest to make the experience of contributing as smooth as possible.</p>
+      </div>
+      <div class="kickoff">
+        <h2>Virtual kickoff event</h2>
+        <p>We’ll kick-off the hackfest together on Monday, August 21st at 19:00 CEST with a livestream hosted by MvvmCross lead contributor Martijn van Dijk. This will be a chance to ask questions and watch a demo on getting started!</p>
+      </div>
+  </section>
+  <section class="member-list hackfest-padding">
+    <h1 class="text-center">Join these developers who’ve already committed</h1>
+    <div class="member-list-content">
+      <div class="list">
+        <table id="member-list">
+          <thead>
+            <th>Avatar</th>
+            <th>Name</th>
+            <th>GitHub</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img src="https://avatars1.githubusercontent.com/u/6221156?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Martijn v.</td>
+              <td><a href="https://github.com/martijn00">@martijn00</a></td>
+            </tr>
+             <tr>
+              <td><img src="https://avatars2.githubusercontent.com/u/3471836?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Garfield L.</td>
+              <td><a href="https://github.com/Garfield550">@Garfield550</a></td>
+            </tr>
+             <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/12127846?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Nicolas M.</td>
+              <td><a href="https://github.com/nmilcoff">@mnmilcoff</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/5895706?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Alexandru S.</td>
+              <td><a href="https://github.com/AlexStefan">@AlexStefan</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/5895706?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Mihai B.</td>
+              <td><a href="https://github.com/AlexStefan">@AlexStefan</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/6887143?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Jorge C.</td>
+              <td><a href="https://github.com/keozx">@keozx</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/249719?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Tomasz C.</td>
+              <td><a href="https://github.com/Cheesebaron">@Cheesebaron</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/11756311?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Axel G.</td>
+              <td><a href="https://github.com/axelgorris">@axelgorris</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/7892868?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Tarun P.</td>
+              <td><a href="https://github.com/pothulapati">@pothulapati</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/877327?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Iain S.</td>
+              <td><a href="https://github.com/b099l3">@b099l3</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/3074404?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Mario G.</td>
+              <td><a href="https://github.com/15mgm15">@15mgm15</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/322731?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Ishai H.</td>
+              <td><a href="https://github.com/eshy">@eshy</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/47168?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Michael C.</td>
+              <td><a href="https://github.com/kiliman">@kiliman</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/2993890?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Kelvin S.</td>
+              <td><a href="https://github.com/nzkelvin">@nzkelvin</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/5860222?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Vasiliy U.</td>
+              <td><a href="https://github.com/prandtl">@prandtl</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/176927?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Aaron L.</td>
+              <td><a href="https://github.com/biozal">@biozal</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/30706724?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Roger L.</td>
+              <td><a href="https://github.com/RogerLM">@RogerLM</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/722128?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Carlos G.</td>
+              <td><a href="https://github.com/devcfgc">@devcfgc</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/6145263?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Albert T.</td>
+              <td><a href="https://github.com/tanure">@tanure</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/19513440?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Venkataramana M.</td>
+              <td><a href="https://github.com/VenkatsQuest">@VenkatsQuest</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/4604579?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Waylon M.</td>
+              <td><a href="https://github.com/waylonmtz">@waylonmtz</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/248149?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Javier F.</td>
+              <td><a href="https://github.com/javierjfernandez">@javierjfernandez</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/24552827?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Chris L.</td>
+              <td><a href="https://github.com/c-lamont">@c-lamont</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/9292477?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Daniel S.</td>
+              <td><a href="https://github.com/yero007">@yero007</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/2555800?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Michal O.</td>
+              <td><a href="https://github.com/orzech85">@orzech85</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/2648655?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Vladimir A.</td>
+              <td><a href="https://github.com/descorp">@descorp</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/1845144?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Anna D.</td>
+              <td><a href="https://github.com/foxanna">@foxanna</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/167574?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Anders B.</td>
+              <td><a href="https://github.com/mellson">@mellson</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/8371644?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Rajeev S.</td>
+              <td><a href="https://github.com/RajeevSirohi">@RajeevSirohi</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/20191522?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Vlad F.</td>
+              <td><a href="https://github.com/vladfasie">@vladfasie</a></td>
+            </tr>
+             <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/15244422?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Daniel K.</td>
+              <td><a href="https://github.com/Daniel-Krzyczkowski">@Daniel-Krzyczkowski</a></td>
+            </tr>
+             <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/30889158?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Vishal G.</td>
+              <td><a href="https://github.com/vishalgoyal7">@vishalgoyal7</a></td>
+            </tr>
+             <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/15682323?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Federico M.</td>
+              <td><a href="https://github.com/fedemkr">@fedemkr</a></td>
+            </tr>
+             <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/1658326?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Ivan M.</td>
+              <td><a href="https://github.com/Vertygo">@Vertygo</a></td>
+            </tr>
+             <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/6325650?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Matthew S.</td>
+              <td><a href="https://github.com/MatthewSannes">@MatthewSannes</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/2371703?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Akhan Z.</td>
+              <td><a href="https://github.com/ahanoff">@ahanoff</a></td>
+            </tr>
+             <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/8338159?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Ed P.</td>
+              <td><a href="https://github.com/pricimus">@pricimus</a></td>
+            </tr>
+             <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/25104868?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Vineeth P.</td>
+              <td><a href="https://github.com/VineethReddy02">@VineethReddy02</a></td>
+            </tr>
+             <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/15007176?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Javier F.</td>
+              <td><a href="https://github.com/javierjfernandesd">@javierjfernandesd</a></td>
+            </tr>
+             <tr>
+              <td><img src="https://avatars3.githubusercontent.com/u/12235978?v=4&s=460" alt="GitHub Avatar"></td>
+              <td>Simone A.</td>
+              <td><a href="https://github.com/Symonsoft">@Symonsoft</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="widget">
+        <iframe src="https://www.eventbrite.co.uk/countdown-widget?eid=36537277982" frameborder="0" height="381" width="195" 
+        marginheight="0" marginwidth="0" scrolling="no" allowtransparency="true"></iframe>
+      </div>
+    </div>
+  </section>
+  <section class="join-us hackfest-padding">
+    <h1 class="text-center">Join us in Amsterdam for the closing event!</h1>
+    <div class="join-us-content">
+      <div class="closing-event">
+        <h2>MvvmCross HackDay, powered by Xablu</h2>
+        <p>Saturday, September 2nd, from 9am-5pm</p>
+        <p>Join MvvmCross contributors from Europe and around the world for a full day dedicated to the extension! We’ll have a morning of talks from the MvvmCross leadership team, followed by an afternoon hackathon to finish off the two weeks of hard work!</p>
+      </div>
+      <a class="sign-up" href="https://www.eventbrite.com/e/mvvmcross-hackday-tickets-36684529415">RSVP for the closing event in Amsterdam</a>
+    </div>
+  </section>
+  <section class="speakers hackfest-padding">
+    <h1 class="text-center">Speakers</h1>
+    <div class="speaker-cards">
+      <div class="speaker-card">
+        <img src="https://avatars0.githubusercontent.com/u/249719?v=4&s=460" alt="">
+        <p class="name">Tomasz Cielecki</p>
+      </div>
+      <div class="speaker-card">
+        <img src="https://avatars1.githubusercontent.com/u/6221156?v=4&s=460" alt="">
+        <p class="name">Martijn van Dijk</p>
+      </div>
+      <div class="speaker-card">
+        <img src="https://avatars3.githubusercontent.com/u/12127846?v=4&s=460" alt="">
+        <p class="name">Nico Milcoff</p>
+      </div>
+      <div class="speaker-card">
+        <img src="https://avatars3.githubusercontent.com/u/13098888?v=4&s=460" alt="">
+        <p class="name">Maurits van Beusekom</p>
+      </div>
+    </div>
+    <div class="speaker-cards">
+      <div class="speaker-card">
+        <img src="https://avatars3.githubusercontent.com/u/676025?v=4&s=460" alt="">
+        <p class="name">Marc Bruins</p>
+      </div>
+      <div class="speaker-card">
+        <img src="https://avatars1.githubusercontent.com/u/552074?v=4&s=460" alt="">
+        <p class="name">Mike James</p>
+      </div>
+      <div class="speaker-card">
+        <img src="" alt="">
+        <p class="name">TBA</p>
+      </div>
+      <div class="speaker-card">
+        <img src="" alt="">
+        <p class="name">TBA</p>
+      </div>
+    </div>
+  </section>
+</article>
+<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.min.js"></script>
+<script type='text/javascript'>
+    jQuery(function($) {
+      $('#member-list').footable();
+    });
+</script>
+
+        <div id="back-to-top" role="button" aria-label="Back to top">
+            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </div>
+    </main>
+    <!-- footer -->
+    
+<footer class="footer" role="contentinfo" aria-label="Site footer">
+    <div class="navigation" role="navigation" aria-label="Footer links">
+        <a href="http://localhost:4000" class="avatar" role="link" aria-label="MvvmCross"></a>
+        <ul role="menubar" aria-label="Footer links menubar">
+            <li class="footer-products" role="menuitem" aria-label="Products">
+                Products
+                <ul role="menu" aria-hidden="true" aria-label="Products link">
+                    <li role="listitem" aria-label="Products link item"><a href="http://github.com/MvvmCross/MvvmCross" target="_blank" role="link" aria-label="MvvmCross">MvvmCross</a></li>
+                    <li role="listitem" aria-label="Products link item"><a href="/documentation/plugins/3rd-party-plugins" role="link" aria-label="Plugins">Plugins</a></li>
+                    <li role="listitem" aria-label="Products link item"><a href="/documentation/samples/samples" role="link" aria-label="Samples">Samples</a></li>
+                </ul>
+            </li>
+            <li class="footer-blog" role="menuitem" aria-label="Blog">
+                Blog
+                <ul role="menu" aria-hidden="true" aria-label="Blog link">
+                    
+                    <li role="listitem" aria-label="Blog link item"><a href="/hello-world/" role="link" aria-label="Hello World 0.1">Hello World 0.1</a></li>
+                    
+                    <li role="listitem" aria-label="Blog link item"><a href="/blog" role="link" aria-label="Read more">Read More</a></li>
+                </ul>
+            </li>
+            <li class="footer-organization" role="menuitem" aria-label="Organization">
+                Organization
+                <ul role="menu" aria-hidden="true" aria-label="Organization link">
+                    <li role="listitem" aria-label="Organization link item"><a href="/about" role="link" aria-label="About MvvmCross">About MvvmCross</a></li>
+                    <li role="listitem" aria-label="Organization link item"><a href="/branding" role="link" aria-label="Branding">Branding</a></li>
+                    <li role="listitem" aria-label="Organization link item"><a href="http://github.com/MvvmCross/MvvmCross/blob/master/CONTRIBUTING.md" role="link" target="_blank" aria-label="Contributing">Contributing</a></li>
+                    <li role="listitem" aria-label="Organization link item"><a href="http://github.com/MvvmCross/MvvmCross/blob/master/LICENSE" role="link" target="_blank" aria-label="License">License</a></li>
+                    <li role="listitem" aria-label="Organization link item"><a href="http://github.com/MvvmCross/MvvmCross/blob/master/CODE_OF_CONDUCT.md" target="_blank" role="link" aria-label="CodeOfConduct">Code of Conduct</a></li>
+                    <li role="listitem" aria-label="Organization link item"><a href="https://opencollective.com/mvvmcross" target="_blank" role="link" aria-label="DonationsSponsors">Donations & Sponsors</a></li>
+                </ul>
+            </li>
+            <li class="footer-connect" role="menuitem" aria-label="Connect">
+                Connect
+                <ul role="menu" aria-hidden="true" aria-label="Connect link">
+                    <li role="listitem" aria-label="Connect link item"><a href="http://github.com/MvvmCross/MvvmCross" target="_blank" role="link" aria-label="GitHub">GitHub</a></li>
+                    <li role="listitem" aria-label="Connect link item"><a href="http://github.com/MvvmCross/MvvmCross/issues" target="_blank" role="link" aria-label="GitHub Issues">GitHub Issues</a></li>
+                    <li role="listitem" aria-label="Connect link item"><a href="https://xamarinchat.herokuapp.com/" target="_blank" role="link" aria-label="Slack">Slack</a></li>
+                    <li role="listitem" aria-label="Connect link item"><a href="https://stackoverflow.com/questions/tagged/mvvmcross" target="_blank" role="link" aria-label="Stack Overflow">Stack Overflow</a></li>
+                    <li role="listitem" aria-label="Connect link item"><a href="https://forums.xamarin.com" target="_blank" role="link" aria-label="Xamarin Forums">Xamarin Forums</a></li>
+                    <li role="listitem" aria-label="Connect link item"><a href="https://www.linkedin.com/groups/8456977" target="_blank" role="link" aria-label="Linkedin">Linkedin</a></li>
+                    <li role="listitem" aria-label="Connect link item"><a href="https://twitter.com/MvvmCross" target="_blank" role="link" aria-label="Twitter">Twitter</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="socials"  role="navigation" aria-label="Social links">
+        <ul role="menu" aria-hidden="true" aria-label="Social link">
+            <li role="listitem" aria-label="Social link item"><a href="http://github.com/MvvmCross/MvvmCross" target="_blank" role="link" aria-label="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+            <li role="listitem" aria-label="Social link item"><a href="https://twitter.com/MvvmCross" target="_blank" role="link" aria-label="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li role="listitem" aria-label="Social link item"><a href="https://xamarinchat.herokuapp.com/" target="_blank" role="link" aria-label="Slack"><i class="fa fa-slack" aria-hidden="true"></i></a></li>
+            <li role="listitem" aria-label="Social link item"><a href="https://stackoverflow.com/questions/tagged/mvvmcross" target="_blank" role="link" aria-label="Stack Overflow"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a></li>
+            <li role="listitem" aria-label="Social link item"><a href="https://www.linkedin.com/groups/8456977" target="_blank" role="link" aria-label="Linkedin"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+            <li role="listitem" aria-label="Social link item"><a href="/feed.xml" role="link" aria-label="RSS"><i class="fa fa-rss-square" aria-hidden="true"></i></a></li>
+        </ul>
+    </div>
+    <div class="copyright" role="contentinfo" aria-label="Copyright">
+        <p>&copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> MvvmCross</p>
+        <div class="right">
+            <a href="/sitemap.xml" target="_blank" role="link" aria-label="Site map">Site Map</a>
+        </div>
+    </div>
+</footer>
+
+    <!-- scripts -->
+    <script src="/assets/js/hamburger-menu.js"></script>
+<script src="/assets/js/elevator.min.js"></script>
+<script src="/assets/js/back-to-top.js"></script>
+    <!-- google analytics -->
+    
+</body>
+</html>
