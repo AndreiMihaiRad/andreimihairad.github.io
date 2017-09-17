@@ -14,7 +14,7 @@ For the next release (5.3) we plan to continue working on this for UWP and Xamar
 
 As the nuget package `MvvmCross.Droid.Shared` was no longer exists, please __force remove__ it first, and then update the rest of the packages.
 
-# 5.2 major changes and improvements 
+# 5.2 major changes and improvements
 
 Please read carefully about the changes because some of them are breaking ones, but easy to fix!
 
@@ -44,7 +44,7 @@ Additionally it adds support for:
 - Closing of Dialog, Fragments, and Fragments when Activity closes
 - Override behaviour on runtime with IMvxOverridePresentationAttribute
 
-The new presenter is very easy to customize and extend. If you have an existing custom presenter we would advice to check compatibility and possible replace it with the new default. 
+The new presenter is very easy to customize and extend. If you have an existing custom presenter we would advice to check compatibility and possible replace it with the new default.
 
 Please note that currently there is no caching mechanism for fragments in this ViewPresenter. Its design and scope is still under discussion. Feel free to help us getting it done!
 
@@ -56,12 +56,12 @@ The new WPF presenter enables to show modal/modal less window. It also changes t
 
 Read more in the [documentation](https://www.mvvmcross.com/documentation/presenters/wpf-view-presenter)
 
-## NavigationService improvements 
+## NavigationService improvements
 
 Same as the previous 5.x releases, we continued improving and fixing our new NavigationService!
 
 ### Prepare method and close bug fixes [#2072](https://github.com/MvvmCross/MvvmCross/pull/2072)
-There are breaking changes in the signature to prevent problems with async code. Any navigation done with the NavigationService and a parameter or result will now be triggered in the `Prepare` method. 
+There are breaking changes in the signature to prevent problems with async code. Any navigation done with the NavigationService and a parameter or result will now be triggered in the `Prepare` method.
 
 `Prepare` is therefore now part of the ViewModel lifecycle: It runs before the navigation is performed, But please note that all of your starter async code should still be called in `Initialize`.
 
@@ -78,7 +78,7 @@ public class MyViewModel : MvxViewModel
     {
         // this method is run before the navigation is performed!
     }
-    
+
     public override async Task Initialize()
     {
         //Do heavy work and data loading here
@@ -98,18 +98,18 @@ public class NextViewModel : MvxViewModel<MyObject, MyReturnObject>
     {
         _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
     }
-    
+
     public override void Prepare(MyObject parameter)
     {
         //Do anything before navigating to the view
         //Save the parameter to a property if you want to use it later
     }
-    
+
     public override async Task Initialize()
     {
         //Do heavy work and data loading here
     }
-    
+
     public async Task SomeMethodToClose()
     {
         await _navigationService.Close(this, new MyReturnObject());
