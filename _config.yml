@@ -18,7 +18,7 @@ description: > # this means to ignore newlines until "baseurl:"
   MvvmCross is a convention based MVVM framework for Xamarin and Windows,
   with strong community support, filled to the brim with useful features.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.mvvmcross.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://andreimihairad.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
@@ -85,12 +85,6 @@ collections:
 menu:
   - title: "Blog"
     url: "/blog"
-  - title: "Documentation"
-    url: "/documentation"
-  - title: "Support"
-    url: "/support"
-  - title: ".NET Summer Hackfest"
-    url: "/hackfest"
 # End
 
 category_order:
