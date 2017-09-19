@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: MvvmCross
+title: Andrei Rad's Blog
 description: > # this means to ignore newlines until "baseurl:"
   MvvmCross is a convention based MVVM framework for Xamarin and Windows,
   with strong community support, filled to the brim with useful features.
@@ -55,15 +55,15 @@ repository: MvvmCross/MvvmCross
 
 # jekyll-seo-tag settings
 social:
-  name: MvvmCross
+  name: AndreiMihaiRad
   links:
-    - https://twitter.com/MvvmCross
-    - https://github.com/MvvmCross
+    - https://twitter.com/rad_andrei29
+    - https://github.com/AndreiMihaiRad
 
 logo: /assets/img/logo/MvvmCross-avatar.png
 
 twitter:
-  username: MvvmCross
+  username: rad_andrei29
 #End
 
 # Date format settings
@@ -83,8 +83,12 @@ collections:
 
 # Site menu settings
 menu:
-  - title: "Blog"
-    url: "/blog"
+  - title: "DevOps"
+    url: "/devops"
+  - title: "Java"
+    url: "/java"
+  - title: "Python"
+    url: "/python"
 # End
 
 category_order:

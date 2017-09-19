@@ -2,7 +2,7 @@
 layout: post
 title: Hello World 0.1
 date:   2017-09-17 11:37:35 +0100
-categories: general
+categories: devops
 ---
 
 # Announcing MvvmCross 5.2!
