@@ -30,9 +30,6 @@ mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
 ```
 
 4. Install following packages
-**Add epel repo**
-**Install following packages**
-
 ```bash
 ## Fedora 21/20/19/18/17/16/15/14/13/12, CentOS/RHEL 7/6/5 ##
 yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
