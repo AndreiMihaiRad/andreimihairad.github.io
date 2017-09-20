@@ -22,11 +22,9 @@ reboot
 ```
 
 
-3. Mount VirtualBox Guest Additiondd.
-
-  Click Devices > Install Guest Additions… on VirtualBox
-
-  ![](/assets/post_imgs/virtualbox-install-guest-additions.png)
+3. Mount VirtualBox Guest Additions.
+  * Click Devices > Install Guest Additions… on VirtualBox
+  * ![](/assets/post_imgs/virtualbox-install-guest-additions.png)
   ```bash
     #Mount VirtualBox Guest Additions device
     mkdir /media/VirtualBoxGuestAdditions
