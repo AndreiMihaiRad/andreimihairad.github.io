@@ -14,7 +14,7 @@ sudo su -
 ```
 
 2. Make sure that you are running latest kernel
-```
+```bash
 yum update kernel*
 
 reboot
@@ -24,7 +24,7 @@ reboot
 Click Devices > Install Guest Additions… on VirtualBox
 [image]
 
-```
+```bash
 #Mount VirtualBox Guest Additions device
 mkdir /media/VirtualBoxGuestAdditions
 mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
@@ -34,13 +34,13 @@ mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
 **Add epel repo**
 **Install following packages**
 
-```
+```bash
 ## Fedora 21/20/19/18/17/16/15/14/13/12, CentOS/RHEL 7/6/5 ##
 yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
 ```
 
 5. Add KERN_DIR environment variable
-```
+```bash
 ## Current running kernel on Fedora, CentOS 7/6 and Red Hat (RHEL) 7/6 ##
 KERN_DIR=/usr/src/kernels/`uname -r`
 
@@ -58,7 +58,7 @@ export KERN_DIR
 ```
 
 6. Install Guest Additions
-```
+```bash
 cd /media/VirtualBoxGuestAdditions
 
 # 32-bit and 64-bit systems run following
@@ -67,6 +67,6 @@ cd /media/VirtualBoxGuestAdditions
 
 7. Reboot guest system
 
-```
+```bash
 reboot
 ```
