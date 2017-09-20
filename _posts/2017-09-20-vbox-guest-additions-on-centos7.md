@@ -1,7 +1,7 @@
 ---
 layout: post
 title: VirtualBox Guest Additons on Centos7
-date:   2017-09-17 11:37:35 +0100
+date:   2017-09-20 11:37:35 +0100
 categories: devops
 ---
 
@@ -16,7 +16,6 @@ sudo su -
 2. Make sure that you are running latest kernel
 ```bash
 yum update kernel*
-
 reboot
 ```
 
