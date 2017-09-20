@@ -22,7 +22,7 @@ reboot
 
 3. Mount VirtualBox Guest Additions
 
-![alt text](/assets/img/intro-bg.jpg "Logo Title Text 1")
+![alt text](/assets/post_imgs/virtualbox-install-guest-additions.png "Adding_guest_additions")
 ```bash
 #Mount VirtualBox Guest Additions device
 mkdir /media/VirtualBoxGuestAdditions
