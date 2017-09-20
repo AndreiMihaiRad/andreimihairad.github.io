@@ -5,7 +5,7 @@ date:   2017-09-20 11:37:35 +0100
 categories: devops
 ---
 
-**This is guide, howto install Oracle VirtualBox Guest Additions on, CentOS and Red Hat (RHEL). This guide should work with Fedora 26/25/24/23/22/21/20/19/18/17/16, CentOS 7.3/6.9/5.11, Red Hat (RHEL) 7.3/6.9/5.11.**
+**This is guide, howto install Oracle VirtualBox Guest Additions on, CentOS and Red Hat (RHEL). This guide should work with Fedora 2, CentOS 7/6**
 
 # Install VirtualBox Guest Additions on CentOS and Red Hat (RHEL)
 
@@ -29,7 +29,7 @@ mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
 
 4. Install following packages
 ```bash
-## Fedora 21/20/19/18/17/16/15/14/13/12, CentOS/RHEL 7/6/5 ##
+## Fedora, CentOS/RHEL 7/6/5 ##
 yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
 ```
 
@@ -44,7 +44,6 @@ export KERN_DIR
 6. Install Guest Additions
 ```bash
 cd /media/VirtualBoxGuestAdditions
-# 32-bit and 64-bit systems run following
 ./VBoxLinuxAdditions.run
 ```
 
