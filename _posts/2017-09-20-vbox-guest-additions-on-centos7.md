@@ -48,7 +48,6 @@ cd /media/VirtualBoxGuestAdditions
 ```
 
 7. Reboot guest system
-
 ```bash
 reboot
 ```
