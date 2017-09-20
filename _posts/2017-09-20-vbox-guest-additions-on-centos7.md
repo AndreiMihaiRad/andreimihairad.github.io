@@ -33,8 +33,8 @@ reboot
 
 
 4. Install following packages
-  * [I'm an inline-style link with title](https://www.google.com "Google's Homepage")
-  * ```bash
+  * [Add epel repository](https://www.google.com "Google's Homepage")
+  ```bash
     ## Fedora, CentOS/RHEL 7/6/5 ##
     yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
     ```
