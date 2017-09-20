@@ -21,6 +21,7 @@ reboot
 ```
 
 3. Mount VirtualBox Guest Additions.
+
 Click Devices > Install Guest Additions… on VirtualBox
 
 
