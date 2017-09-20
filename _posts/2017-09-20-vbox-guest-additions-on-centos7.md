@@ -22,9 +22,9 @@ reboot
 ```
 
 
-3. Mount VirtualBox Guest Additionsdd.
+3. Mount VirtualBox Guest Additionsxx.
 
-![alt text](/assets/post_imgs/virtualbox-install-guest-additions.png "Adding_guest_additions")
+![](/assets/post_imgs/virtualbox-install-guest-additions.png)
 ```bash
 #Mount VirtualBox Guest Additions device
 mkdir /media/VirtualBoxGuestAdditions
