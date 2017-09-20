@@ -33,10 +33,11 @@ reboot
 
 
 4. Install following packages
-```bash
-## Fedora, CentOS/RHEL 7/6/5 ##
-yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
-```
+  * [I'm an inline-style link with title](https://www.google.com "Google's Homepage")
+  * ```bash
+    ## Fedora, CentOS/RHEL 7/6/5 ##
+    yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
+    ```
 
 
 5. Add KERN_DIR environment variable
