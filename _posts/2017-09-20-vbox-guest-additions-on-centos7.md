@@ -14,11 +14,13 @@ categories: devops
 sudo su -
 ```
 
+
 2. Make sure that you are running latest kernel
 ```bash
 yum update kernel*
 reboot
 ```
+
 
 3. Mount VirtualBox Guest Additions.
 
@@ -33,11 +35,13 @@ mkdir /media/VirtualBoxGuestAdditions
 mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
 ```
 
+
 4. Install following packages
 ```bash
 ## Fedora, CentOS/RHEL 7/6/5 ##
 yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
 ```
+
 
 5. Add KERN_DIR environment variable
 ```bash
@@ -47,11 +51,13 @@ KERN_DIR=/usr/src/kernels/`uname -r`
 export KERN_DIR
 ```
 
+
 6. Install Guest Additions
 ```bash
 cd /media/VirtualBoxGuestAdditions
 ./VBoxLinuxAdditions.run
 ```
+
 
 7. Reboot guest system
 ```bash
