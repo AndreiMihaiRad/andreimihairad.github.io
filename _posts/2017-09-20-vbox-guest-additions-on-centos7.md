@@ -22,14 +22,15 @@ reboot
 ```
 
 
-3. Mount VirtualBox Guest Additionsxx.
+3. Mount VirtualBox Guest Additionsss.
+  * ![](/assets/post_imgs/virtualbox-install-guest-additions.png)
+  * ```bash
+    #Mount VirtualBox Guest Additions device
+    mkdir /media/VirtualBoxGuestAdditions
+    mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
+    ```
 
-![](/assets/post_imgs/virtualbox-install-guest-additions.png)
-```bash
-#Mount VirtualBox Guest Additions device
-mkdir /media/VirtualBoxGuestAdditions
-mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
-```
+
 4. Install following packages
 ```bash
 ## Fedora, CentOS/RHEL 7/6/5 ##
