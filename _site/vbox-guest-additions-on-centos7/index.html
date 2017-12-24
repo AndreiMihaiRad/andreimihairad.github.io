@@ -27,20 +27,20 @@
     <link rel="stylesheet" href="/assets/richleland-pygments-css/vs.css">
     <!-- jekyll-seo-tag -->
     <!-- Begin Jekyll SEO tag v2.2.3 -->
-<title>Hello World 0.1 | Andrei Rad’s Blog</title>
-<meta property="og:title" content="Hello World 0.1" />
+<title>VirtualBox Guest Additons on Centos7 | Andrei Rad’s Blog</title>
+<meta property="og:title" content="VirtualBox Guest Additons on Centos7" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Announcing MvvmCross 5.2!" />
-<meta property="og:description" content="Announcing MvvmCross 5.2!" />
-<link rel="canonical" href="http://localhost:4000/hello-world/" />
-<meta property="og:url" content="http://localhost:4000/hello-world/" />
+<meta name="description" content="This is guide, howto install Oracle VirtualBox Guest Additions on, CentOS and Red Hat (RHEL). This guide should work with Fedora 2, CentOS 7/6" />
+<meta property="og:description" content="This is guide, howto install Oracle VirtualBox Guest Additions on, CentOS and Red Hat (RHEL). This guide should work with Fedora 2, CentOS 7/6" />
+<link rel="canonical" href="http://localhost:4000/vbox-guest-additions-on-centos7/" />
+<meta property="og:url" content="http://localhost:4000/vbox-guest-additions-on-centos7/" />
 <meta property="og:site_name" content="Andrei Rad’s Blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2017-09-17T13:37:35+03:00" />
+<meta property="article:published_time" content="2017-09-20T13:37:35+03:00" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@rad_andrei29" />
 <script type="application/ld+json">
-{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hello World 0.1","datePublished":"2017-09-17T13:37:35+03:00","dateModified":"2017-09-17T13:37:35+03:00","description":"Announcing MvvmCross 5.2!","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/logo/MvvmCross-avatar.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/hello-world/"},"url":"http://localhost:4000/hello-world/"}</script>
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"VirtualBox Guest Additons on Centos7","datePublished":"2017-09-20T13:37:35+03:00","dateModified":"2017-09-20T13:37:35+03:00","description":"This is guide, howto install Oracle VirtualBox Guest Additions on, CentOS and Red Hat (RHEL). This guide should work with Fedora 2, CentOS 7/6","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/logo/MvvmCross-avatar.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/vbox-guest-additions-on-centos7/"},"url":"http://localhost:4000/vbox-guest-additions-on-centos7/"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- favicons and rss -->
@@ -67,13 +67,13 @@
         <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
     </button>
     <a href="/" class="logo" role="link" aria-label="Home">
-        <img alt="Andrei Rad&#39;s Blog" src="/assets/img/logo/MvvmCross-logo.png" role="img" aria-label="Logo"/>
+        <img alt="Andrei Rad&#39;s Blog" src="/assets/img/logo/ram-zone.png" role="img" aria-label="Logo"/>
     </a>
     <nav class="navigation" role="navigation" aria-label="Navigation">
         <ul role="menu" aria-hidden="true" aria-label="Navigation menu">
             <li role="menuitem" aria-label="Navigation menu item">
                 <a href="/" class="logo" role="menuitem" aria-label="Home">
-                    <img alt="Andrei Rad&#39;s Blog" src="/assets/img/logo/MvvmCross-logo.png" role="img" aria-label="Logo"/>
+                    <img alt="Andrei Rad&#39;s Blog" src="/assets/img/logo/ram-zone.png" role="img" aria-label="Logo"/>
                 </a>
             </li>
             
@@ -327,23 +327,79 @@
         
     </div>
 </nav>
+
     <!-- main content -->
     <main class="container" role="main">
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 itemprop="name headline">Hello World 0.1</h1>
+    <h1 itemprop="name headline">VirtualBox Guest Additons on Centos7</h1>
     <p class="meta">
-        <time datetime="2017-09-17T13:37:35+03:00" itemprop="datePublished">
+        <time datetime="2017-09-20T13:37:35+03:00" itemprop="datePublished">
             
-            Sep 17, 2017
+            Sep 20, 2017
         </time>
         
     </p>
   </header>
   <div class="post-content" itemprop="articleBody">
-    <h1 id="announcing-mvvmcross-52">Announcing MvvmCross 5.2!</h1>
+    <p><strong>This is guide, howto install Oracle VirtualBox Guest Additions on, CentOS and Red Hat (RHEL). This guide should work with Fedora 2, CentOS 7/6</strong></p>
 
-<p>Hi guys, I just created a new place where we can meet, discuss and share our knowledge about our IT work.</p>
+<h2 id="install-steps">Install Steps</h2>
+
+<ol>
+  <li>Change root user
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo su -
+</code></pre>
+    </div>
+  </li>
+  <li>Make sure that you are running latest kernel
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>yum update kernel<span class="k">*</span>
+reboot
+</code></pre>
+    </div>
+  </li>
+  <li>Mount VirtualBox Guest Additions.
+    <ul>
+      <li>Click Devices &gt; Install Guest Additions… on VirtualBox</li>
+      <li><img src="/assets/post_imgs/virtualbox-install-guest-additions.png" alt="" />
+        <div class="language-bash highlighter-rouge"><pre class="highlight"><code> <span class="c">#Mount VirtualBox Guest Additions device</span>
+ mkdir /media/VirtualBoxGuestAdditions
+ mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
+</code></pre>
+        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Install following packages
+    <ul>
+      <li><a href="https://www.google.com" title="Google's Homepage">Add epel repository</a>
+        <div class="language-bash highlighter-rouge"><pre class="highlight"><code> <span class="c">## Fedora, CentOS/RHEL 7/6/5 ##</span>
+ yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
+</code></pre>
+        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Add KERN_DIR environment variable
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">## Current running kernel on Fedora, CentOS 7/6 and Red Hat (RHEL) 7/6 ##</span>
+<span class="nv">KERN_DIR</span><span class="o">=</span>/usr/src/kernels/<span class="sb">`</span>uname -r<span class="sb">`</span>
+<span class="c">## Export KERN_DIR ##</span>
+<span class="nb">export </span>KERN_DIR
+</code></pre>
+    </div>
+  </li>
+  <li>Install Guest Additions
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> /media/VirtualBoxGuestAdditions
+./VBoxLinuxAdditions.run
+</code></pre>
+    </div>
+  </li>
+  <li>Reboot guest system
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>reboot
+</code></pre>
+    </div>
+  </li>
+</ol>
 
   </div>
 </article>
@@ -371,7 +427,7 @@
                 Blog
                 <ul role="menu" aria-hidden="true" aria-label="Blog link">
                     
-                    <li role="listitem" aria-label="Blog link item"><a href="/hello-world/" role="link" aria-label="Hello World 0.1">Hello World 0.1</a></li>
+                    <li role="listitem" aria-label="Blog link item"><a href="/vbox-guest-additions-on-centos7/" role="link" aria-label="VirtualBox Guest Additons on Centos7">VirtualBox Guest Additons on Centos7</a></li>
                     
                     <li role="listitem" aria-label="Blog link item"><a href="/hello-python/" role="link" aria-label="Hello Python 0.1">Hello Python 0.1</a></li>
                     

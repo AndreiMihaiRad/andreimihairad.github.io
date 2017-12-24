@@ -1,7 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-19T23:57:46+03:00</updated><id>http://localhost:4000/</id><title type="html">Andrei Rad’s Blog</title><subtitle>MvvmCross is a convention based MVVM framework for Xamarin and Windows, with strong community support, filled to the brim with useful features.
-</subtitle><entry><title type="html">Hello World 0.1</title><link href="http://localhost:4000/hello-world/" rel="alternate" type="text/html" title="Hello World 0.1" /><published>2017-09-17T13:37:35+03:00</published><updated>2017-09-17T13:37:35+03:00</updated><id>http://localhost:4000/hello-world</id><content type="html" xml:base="http://localhost:4000/hello-world/">&lt;h1 id=&quot;announcing-mvvmcross-52&quot;&gt;Announcing MvvmCross 5.2!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-20T23:02:46+03:00</updated><id>http://localhost:4000/</id><title type="html">Andrei Rad’s Blog</title><subtitle>MvvmCross is a convention based MVVM framework for Xamarin and Windows, with strong community support, filled to the brim with useful features.
+</subtitle><entry><title type="html">VirtualBox Guest Additons on Centos7</title><link href="http://localhost:4000/vbox-guest-additions-on-centos7/" rel="alternate" type="text/html" title="VirtualBox Guest Additons on Centos7" /><published>2017-09-20T13:37:35+03:00</published><updated>2017-09-20T13:37:35+03:00</updated><id>http://localhost:4000/vbox-guest-additions-on-centos7</id><content type="html" xml:base="http://localhost:4000/vbox-guest-additions-on-centos7/">&lt;p&gt;&lt;strong&gt;This is guide, howto install Oracle VirtualBox Guest Additions on, CentOS and Red Hat (RHEL). This guide should work with Fedora 2, CentOS 7/6&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Hi guys, I just created a new place where we can meet, discuss and share our knowledge about our IT work.&lt;/p&gt;</content><author><name></name></author><summary type="html">Announcing MvvmCross 5.2!</summary></entry><entry><title type="html">Hello Python 0.1</title><link href="http://localhost:4000/hello-python/" rel="alternate" type="text/html" title="Hello Python 0.1" /><published>2017-09-17T13:37:35+03:00</published><updated>2017-09-17T13:37:35+03:00</updated><id>http://localhost:4000/hello-python</id><content type="html" xml:base="http://localhost:4000/hello-python/">&lt;h1 id=&quot;announcing-mvvmcross-52&quot;&gt;Announcing MvvmCross 5.2!&lt;/h1&gt;
+&lt;h2 id=&quot;install-steps&quot;&gt;Install Steps&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Change root user
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo su -
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Make sure that you are running latest kernel
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum update kernel&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+reboot
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Mount VirtualBox Guest Additions.
+    &lt;ul&gt;
+      &lt;li&gt;Click Devices &amp;gt; Install Guest Additions… on VirtualBox&lt;/li&gt;
+      &lt;li&gt;&lt;img src=&quot;/assets/post_imgs/virtualbox-install-guest-additions.png&quot; alt=&quot;&quot; /&gt;
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c&quot;&gt;#Mount VirtualBox Guest Additions device&lt;/span&gt;
+ mkdir /media/VirtualBoxGuestAdditions
+ mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
+&lt;/code&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Install following packages
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.google.com&quot; title=&quot;Google's Homepage&quot;&gt;Add epel repository&lt;/a&gt;
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c&quot;&gt;## Fedora, CentOS/RHEL 7/6/5 ##&lt;/span&gt;
+ yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
+&lt;/code&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Add KERN_DIR environment variable
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;## Current running kernel on Fedora, CentOS 7/6 and Red Hat (RHEL) 7/6 ##&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;KERN_DIR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/src/kernels/&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;uname -r&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;## Export KERN_DIR ##&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;KERN_DIR
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Install Guest Additions
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /media/VirtualBoxGuestAdditions
+./VBoxLinuxAdditions.run
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Reboot guest system
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;reboot
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">This is guide, howto install Oracle VirtualBox Guest Additions on, CentOS and Red Hat (RHEL). This guide should work with Fedora 2, CentOS 7/6</summary></entry><entry><title type="html">Hello Python 0.1</title><link href="http://localhost:4000/hello-python/" rel="alternate" type="text/html" title="Hello Python 0.1" /><published>2017-09-17T13:37:35+03:00</published><updated>2017-09-17T13:37:35+03:00</updated><id>http://localhost:4000/hello-python</id><content type="html" xml:base="http://localhost:4000/hello-python/">&lt;h1 id=&quot;announcing-mvvmcross-52&quot;&gt;Announcing MvvmCross 5.2!&lt;/h1&gt;
 
 &lt;p&gt;Hi guys, I just created a new place where we can meet, discuss and share our knowledge about our IT work.&lt;/p&gt;</content><author><name></name></author><summary type="html">Announcing MvvmCross 5.2!</summary></entry><entry><title type="html">Hello Java 0.1</title><link href="http://localhost:4000/hello-java/" rel="alternate" type="text/html" title="Hello Java 0.1" /><published>2017-09-17T13:37:35+03:00</published><updated>2017-09-17T13:37:35+03:00</updated><id>http://localhost:4000/hello-java</id><content type="html" xml:base="http://localhost:4000/hello-java/">&lt;h1 id=&quot;announcing-mvvmcross-52&quot;&gt;Announcing MvvmCross 5.2!&lt;/h1&gt;
 
